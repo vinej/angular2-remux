@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppState } from '../app.service';
+import AuthActions from '../../actions/auth_actions'
 
 @Component({
   // The selector is what angular internally uses
@@ -20,7 +21,7 @@ export class SignIn {
   password = ''
   
   onSubmit($event) {
-      console.log($event,'onsubmit', this.email, this.password)
+      AuthActions.authSignIn(this.email, this.password)
   }
   
   // TypeScript public modifiers
