@@ -5,7 +5,7 @@ import {
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { App } from './app.component';
+import { App } from './components/app/app.component';
 import { AppState } from './app.service';
 
 describe('App', () => {

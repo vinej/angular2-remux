@@ -1,5 +1,5 @@
-# angular2-portal
+# angular2-Remux
 
-not completed yet
+NOT READY YET
 
-A dashboard example with angular2 and a Flux pattern (remux) inspired from Redux
+A example with angular2 with Mobx and a Flux pattern (remux) inspired from Redux
