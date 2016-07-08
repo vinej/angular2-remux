@@ -1,6 +1,7 @@
 //import axios from '../../node_modules/axios'
 import { ROOT_URL, HEADERS, PARAMETERS } from './config_service'
 
+
 export default class AuthService {
   static instanceService : any
 
