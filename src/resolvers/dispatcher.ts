@@ -8,6 +8,7 @@ class Dispatcher {
   stdResolversAll = []
 
   constructor() {
+    //this.stdResolversAll = []
   }
 
   addResolver(resolver) {

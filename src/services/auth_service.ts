@@ -1,27 +1,26 @@
-//import axios from '../../node_modules/axios'
+//import axios from 'axios'
 import { ROOT_URL, HEADERS, PARAMETERS } from './config_service'
 
-
 export default class AuthService {
-  static instanceService : any
+  static instanceService = null
 
   constructor() {
-    AuthService.instanceService = null
+    //this.instanceService = null
   }
 
-  static setInstance(instanceService : any) {
+  static setInstance(instanceService) {
     AuthService.instanceService = instanceService
   }
 
-  static getInstance() : any {
+  static getInstance() {
     if (!AuthService.instanceService) {
       AuthService.instanceService = new AuthService()
     }
     return AuthService.instanceService
   }
 
-  // signIn({ email , password  }, next: any, err: any) {
-  //   axios.post(`${ROOT_URL}/auth/signin?${PARAMETERS()}`, { email : String, password: String })
+  // signIn({ email, password }, next, err) {
+  //   axios.post(`${ROOT_URL}/auth/signin?${PARAMETERS()}`, { email, password })
   //   .then(response => {
   //     console.log(response.data.token)
   //     next(response.data.token, response.data.name); 
@@ -32,7 +31,7 @@ export default class AuthService {
   // }
 
   // signUp({ email, password, name }, next, err) {
-  //   axios.post(`${ROOT_URL}/auth/signup?${PARAMETERS()}`, { email : String, password : String, name: String })
+  //   axios.post(`${ROOT_URL}/auth/signup?${PARAMETERS()}`, { email, password, name })
   //   .then(response => {
   //     console.log(response.data.token)
   //     next(response.data.token, name); 
@@ -50,5 +49,3 @@ export default class AuthService {
   //   })
   // }
 }
-
-

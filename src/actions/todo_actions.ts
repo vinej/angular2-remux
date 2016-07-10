@@ -14,7 +14,8 @@ const t = todoTypes
 
 export default class TodoActions {
 
-  static todoGetAll() {
+  public static todoGetAll() {
+    console.log('getall')
     dispatch( {
       type: t.todoGetAll,
       payload: function() {
@@ -24,44 +25,41 @@ export default class TodoActions {
     })
   }
 
-  static _todoGetAll(todos: any[]) {
+  public static _todoGetAll(todos) {
     dispatch( {
       type: t.todoGetAll,
       payload: todos
     })
   }
 
-  static todoAdd() {
+  public static todoAdd() {
     dispatch( {
       type: t.todoAdd
     })
   }
 
-  static todoDelete(id: number) {
+  public static todoDelete(id) {
     dispatch( {
       type: t.todoDelete,
       payload: id
     })
   }
 
-  static todoSetDesc(desc : string) {
+  public static todoSetDesc(desc) {
     dispatch( {
       type: t.todoSetDesc,
       payload: desc
     })
   }
 
-  static todoSetDone(todo: any, done: boolean) {
+  public static todoSetDone(todo, done) {
     dispatch( {
       type: t.todoSetDone,
       payload: { todo, done }
     })
   }
 
-  static todoError(error: string) {
+  public static todoError(error) {
     alert(error)
   }
-
 }
-
-

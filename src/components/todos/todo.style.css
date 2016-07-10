@@ -1,0 +1,9 @@
+.todoLineThrough {
+  text-decoration: line-through;
+  color: lightgray;
+}
+
+.todoStandard {
+  text-decoration: none;
+  color: black;
+}

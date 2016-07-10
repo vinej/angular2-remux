@@ -1,36 +1,34 @@
-import { observable } from 'mobx'
+import { action } from 'mobx'
 import TodoActions from '../actions/todo_actions'
+import { appState } from './app_state'
 
 export default class TodoStore {
-  @observable _todos : any[]
-  @observable _desc : string
-  on : any
-  _count: number
+  state = null
+  on = null
 
   constructor() {
+    this.state = appState.todos
     this.on = TodoActions
-    this._count = 3
-    this.desc = ''
   }
 
-  set desc(desc : string) {
-    this._desc = desc
+  set desc(desc) {
+    this.state.desc = desc
   }
 
-  get desc() : string {
-    return this._desc
+  get desc() {
+    return this.state.desc
   }
 
-  get todos() : any[] {
-    return this._todos
+  get todos() {
+    return this.state.todos
   }
 
   setAll(todos) {
-    this._todos = todos
+    this.state.todos = todos
   }
 
   setDesc(desc) {
-    this._desc = desc
+    this.state.desc = desc
   }
 
   setDone( {todo, done }) {
@@ -38,15 +36,15 @@ export default class TodoStore {
   }
 
   delete(id) {
-    const idx = this.todos.findIndex( (r) => r.id === id );
-    this.todos.splice(idx,1);
+    const idx = this.state.todos.findIndex( (r) => r.id === id );
+    this.state.todos.splice(idx,1);
   }
 
   add() {
-    if (this._desc === '') return
-    this.todos.push( { id: this._count, desc: this.desc, done: false} );
-    this._count = this._count + 1
-    this._desc = ''
+    if (this.state.desc === '') return
+    this.state.todos.push( { id: this.state.count, desc: this.state.desc, done: false} );
+    this.state.count = this.state.count + 1
+    this.state.desc = ''
   }
 }
 export let todoStore = new TodoStore()

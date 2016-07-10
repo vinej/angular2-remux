@@ -1,17 +1,16 @@
 import CrudService from './crud_service' 
 
 export default class TodoService {
-  static instanceService : any
-
+  static instanceService = null
   constructor() {
-    TodoService.instanceService = null
+    //this.instanceService = null
   }
 
-  static setInstance(instanceService : any) {
+  static setInstance(instanceService) {
     TodoService.instanceService = instanceService
   }
 
-  static getInstance() : any {
+  static getInstance() {
     if (!TodoService.instanceService) {
       TodoService.instanceService = new CrudService('todos')
     }

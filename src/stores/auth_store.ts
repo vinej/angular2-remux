@@ -1,16 +1,15 @@
-import { observable, action, transaction } from 'mobx'
 import AuthActions from '../actions/auth_actions'
+import RefRoutes from '../ref_routes'
+import { appState } from './app_state'
 
 export default class AuthStore {
-  @observable email: string = ""
-  @observable name: string  = ""
-  @observable authenticated: boolean = false
-  @observable errorMessage: string = ''
+  state = null
 
-  isAutorizationInit: boolean = false
-  //authorizations = []
+  constructor() {
+    this.state = appState.user
+  }
 
-  isActionAvailable(actiontype: string) : boolean {
+  isActionAvailable(actiontype) {
     return true
     // if (actiontype.endsWith("_")) {
     //   actiontype = actiontype.substr(0, actiontype.length - 1);
@@ -18,50 +17,51 @@ export default class AuthStore {
     // return this.actions.indexOf(actiontype) > -1
   }
 
-  getError() : string {
-    return this.errorMessage
+  getError() {
+    return this.state.errorMessage
   }
 
   setAuthorizations(authorizations) {
-    transaction( () => {
-      this.isAutorizationInit = true
-      //this.authorizations = authorizations
-    })
+    this.state.isAutorizationInit = true
+    //this.authorizations = authorizations
+    RefRoutes.routeTodo()
+  }
+
+  isAuthenticated() {
+    return this.state.authenticated
   }
 
   checkToken() {
     const token = localStorage.getItem('remux-token')
     if (token != null && token != '') {
       const name = localStorage.getItem('remux-name')
-      transaction( () => {
-        this.authenticated = true
-        this.name = name
-        this.errorMessage = ''
-        AuthActions.authSetAuthorizations()
-      })
+      this.state.authenticated = true
+      this.state.name = name
+      this.state.errorMessage = ''
+      AuthActions.authSetAuthorizations()
+    } else {
+      this.state.authenticated = false
+      this.state.name = ''
+      this.state.errorMessage = ''
+      RefRoutes.routeSignIn()
     }
   }
 
-  signInOrUp(token: string, name: string) {
-    console.log('signinup',token,name)
+  signInOrUp(token, name) {
     localStorage.setItem('remux-token', token);
     localStorage.setItem('remux-name', name);
-    transaction( () => {
-      this.authenticated = true;
-      this.name = name;
-      this.errorMessage = '';
-    });
+    this.state.authenticated = true;
+    this.state.name = name;
+    this.state.errorMessage = '';
     AuthActions.authSetAuthorizations()
   }
 
   signOut() {
     localStorage.removeItem('remux-token');
     localStorage.removeItem('remux-name');
-    transaction(() => {
-      this.authenticated = false;
-      this.name = '';
-      this.errorMessage = '';
-    });
+    this.state.authenticated = false;
+    this.state.name = '';
+    this.state.errorMessage = '';
   }
 
   authError(error) {

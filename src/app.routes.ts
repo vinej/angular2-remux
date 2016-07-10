@@ -2,6 +2,9 @@ import { WebpackAsyncRoute } from '@angularclass/webpack-toolkit';
 import { RouterConfig } from '@angular/router';
 import { Home } from './components/home';
 import { SignIn } from './components/signin';
+import { SignUp } from './components/signup';
+import { SignOut } from './components/signout';
+import { Todos } from './components/todos';
 import { NoContent } from './components/no-content';
 
 import { DataResolver } from './app.resolver';
@@ -18,12 +21,6 @@ export const routes: RouterConfig = [
     resolve: {
       'yourData': DataResolver
   }},
-  // async components with children routes must use WebpackAsyncRoute
-  { path: 'detail', component: 'Detail',
-    canActivate: [ WebpackAsyncRoute ],
-    children: [
-      { path: '', component: 'Index' }  // must be included
-    ]},
   { path: '**',    component: NoContent },
 ];
 
@@ -33,19 +30,13 @@ export const routes: RouterConfig = [
 
 export const asyncRoutes: AsyncRoutes = {
   // we have to use the alternative syntax for es6-promise-loader to grab the routes
-  'About': require('es6-promise-loader!./components/about'),
-  'Detail': require('es6-promise-loader!./components/+detail'),
   'SignIn': require('es6-promise-loader!./components/signin'),
-  'Index': require('es6-promise-loader!./components/+detail') // must be exported with detail/index.ts
 };
 
 
 // Optimizations for initial loads
 // An array of callbacks to be invoked after bootstrap to prefetch async routes
 export const prefetchRouteCallbacks: Array<IdleCallbacks> = [
-  asyncRoutes['About'],
-  asyncRoutes['Detail'],
-  asyncRoutes['SignIn']
    // es6-promise-loader returns a function
 ];
 

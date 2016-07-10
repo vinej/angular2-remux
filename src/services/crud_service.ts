@@ -1,8 +1,8 @@
-//import axios from 'axios.d';
+//import axios from 'axios';
 import { API_URL, HEADERS, PARAMETERS } from './config_service';
 
 export default class CrudService {
-  service : any
+  service = null
 
   constructor(service) {
     this.service = service;

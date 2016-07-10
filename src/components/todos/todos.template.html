@@ -1,0 +1,21 @@
+<div class="pure-form">
+  <table class='pure-table'>
+    <thead >
+      <tr>
+        <th>Id</th>
+        <th style="width: 130px">Description</th>
+        <th >del</th>
+      </tr>
+    </thead>
+    <tbody>
+      <todo *ngFor="let todo of store.todos; let i = index" [todo]="todo" ></todo>
+    </tbody>
+  </table>
+  <div>
+    <input type='text'  
+           [(ngModel)]='desc'
+           (blur)="on.todoSetDesc($event.target.value)" 
+    />
+  </div>
+  <button class="pure-button" (click)="on.todoAdd(); desc = ''"> add </button>
+</div>
