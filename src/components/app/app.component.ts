@@ -1,11 +1,10 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppState } from '../../app.service';
 import { Header } from './header'
 import { Footer } from './footer'
-//import { APP_PROVIDERS } from '../../index'
 
 /*
  * App Component
@@ -18,10 +17,9 @@ import { Footer } from './footer'
   templateUrl: './app.component.html'
 })
 export class App {
-  store = null
 
   constructor(public appState: AppState) {
-    console.log(appState.state)
+    //console.log(appState.state)
   }
 
   ngOnInit() {

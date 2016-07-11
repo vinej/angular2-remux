@@ -3,7 +3,7 @@ import { AppState } from '../../app.service';
 import TodoActions from '../../actions/todo_actions';
 
 @Component({
-  selector: 'todo',  // <home></home>
+  selector: '[todo]',  // <home></home>
   templateUrl: './todo.template.html',
   inputs: [ 'todo' ],
   styleUrls: ['./todo.style.css']

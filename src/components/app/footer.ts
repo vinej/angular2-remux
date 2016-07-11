@@ -11,9 +11,8 @@ import { AppState } from '../../app.service';
   `
 })
 export class Footer {
-  store = null
   constructor(public appState: AppState) {
-    this.store = appState.state
+    //this.store = appState.state
   }
 
   ngOnInit() {

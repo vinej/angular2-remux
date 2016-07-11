@@ -1,10 +1,10 @@
 
 export default class RefRoutes {
   public static routeTodo() {
-    location.href = '/#/todos';
+    location.href = '/#todos';
   }
 
   public static routeSignIn() {
-    location.href = '/#/signin';
+    location.href = '/#signin';
   }
 }

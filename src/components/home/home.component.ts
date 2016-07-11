@@ -9,7 +9,7 @@ import { AppState } from '../../app.service';
 export class Home {
   // TypeScript public modifiers
   constructor(public appState: AppState) {
-    console.log(appState)
+    //console.log(appState)
   }
 
   ngOnInit() {

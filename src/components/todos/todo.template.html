@@ -1,7 +1,5 @@
-<tr> 
-  <td>{{todo.id}}</td> 
-  <td   [class.todoLineThrough]="todo.done" 
-        [class.todoStandard]="!todo.done"
-        (click)="on.todoSetDone(todo, !todo.done)" >{{todo.desc}}</td>
-  <td (click)="on.todoDelete(todo.id)">Del</td>
-</tr>
+<td>{{todo.id}}</td> 
+<td   [class.todoLineThrough]="todo.done" 
+    [class.todoStandard]="!todo.done"
+    (click)="on.todoSetDone(todo, !todo.done)" >{{todo.desc}}</td>
+<td (click)="on.todoDelete(todo.id)">Del</td>

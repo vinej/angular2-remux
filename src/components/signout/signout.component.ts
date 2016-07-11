@@ -5,7 +5,7 @@ import AuthActions from '../../actions/auth_actions'
 @Component({
   selector: 'signout',  // <home></home>
   templateUrl: './signout.template.html'
-})
+}) 
 
 export class SignOut {
   // TypeScript public modifiers

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppState, User } from '../../app.service';
+import { AppState } from '../../app.service';
 
 @Component({
   selector: 'header',
@@ -19,7 +19,6 @@ import { AppState, User } from '../../app.service';
   `
 })
 export class Header {
-  //authenticated = false
   store = null
 
   constructor(public appState: AppState) {

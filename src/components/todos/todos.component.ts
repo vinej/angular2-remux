@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { AppState } from '../../app.service';
 import TodoActions from '../../actions/todo_actions';
 import { Todo } from './todo.component';
+import { RemoveHost } from '../app/remove.host';
+
 
 @Component({
   selector: 'todos',  // <home></home>
   templateUrl: './todos.template.html',
-  directives: [ Todo ]
+  directives: [ Todo, RemoveHost ]
 })
 export class Todos {
   store = null
@@ -15,10 +17,6 @@ export class Todos {
   constructor(public appState: AppState) {
     this.store = appState.state.todos
     this.on = TodoActions
-  }
-
-  DoneClass(isDone: boolean) : string {
-    return (isDone === true) ? "todoLineThrough" : "todoStandard";
   }
 
   ngOnInit() {

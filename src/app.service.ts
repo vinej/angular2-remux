@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HmrState } from 'angular2-hmr';
+//import { HmrState } from 'angular2-hmr';
 import { appState} from './stores/app_state';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -14,10 +14,11 @@ export interface User {
 @Injectable()
 export class AppState {
   // @HmrState() is used by HMR to track the state of any object during HMR (hot module replacement)
-  @HmrState() _state = appState;
+  //@HmrState() _state = appState;
+  _state = appState;
 
   constructor() {
-    console.log('user')
+    console.log('Hello app.service')
   }
 
   // already return a clone of the current state
@@ -29,7 +30,4 @@ export class AppState {
     throw new Error('do not mutate the `.state` directly');
   }
 
-  get user$() {
-    return this._user$
-  }
 }

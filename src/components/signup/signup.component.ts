@@ -14,7 +14,8 @@ export class SignUp {
   name = ''
 
   onSubmit($event) {
-      AuthActions.authSignUp(this.email, this.password, this.name)
+    $event.preventDefault()
+    AuthActions.authSignUp(this.email, this.password, this.name)
   }
   
   // TypeScript public modifiers

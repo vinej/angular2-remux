@@ -11,13 +11,14 @@ export class SignIn {
   password = ''
   
   onSubmit($event) {
-    console.log('signin', this.email, this.password)
+    $event.preventDefault()
     AuthActions.authSignIn(this.email, this.password)
+    return false
   }
   
   // TypeScript public modifiers
   constructor(public appState: AppState) {
-    console.log('constructor signin :')
+    //console.log('constructor signin :')
   }
 
   ngOnInit() {
