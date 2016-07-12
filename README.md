@@ -1,4 +1,4 @@
-# angular2-Remux
+# angular2-remux
 
 Welcome to angular2-remux
 
