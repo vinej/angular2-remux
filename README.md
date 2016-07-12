@@ -1,6 +1,6 @@
 # angular2-Remux
 
-Welcome to angular2-remuxx
+Welcome to angular2-remux
 
 The boilerplate give you a minimum example to use the Remux flux pattern with angular2
 * ReMux stand for : **Re**act **M**obx Fl**ux** pattern and it's inspired by Redux.
@@ -23,8 +23,6 @@ With 'ReMux' you have a very simple way to implement the following pattern
 * TRY IT, IT'S VERY SIMPLE THIS WAY
 
 In the example, the services are Mocked : to test with real services use the REST services of this backend : https://github.com/vinej/react-portal-server
-
-For a more complete example see: https://github.com/vinej/react-portal
 
   * npm install
   * npm start
