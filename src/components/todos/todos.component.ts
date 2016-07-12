@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { AppState } from '../../app.service';
 import TodoActions from '../../actions/todo_actions';
 import { Todo } from './todo.component';
-import { RemoveHost } from '../app/remove.host';
-
 
 @Component({
   selector: 'todos',  // <home></home>
