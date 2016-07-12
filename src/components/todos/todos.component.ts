@@ -6,7 +6,7 @@ import { Todo } from './todo.component';
 @Component({
   selector: 'todos',  // <home></home>
   templateUrl: './todos.template.html',
-  directives: [ Todo, RemoveHost ]
+  directives: [ Todo ]
 })
 export class Todos {
   store = null
